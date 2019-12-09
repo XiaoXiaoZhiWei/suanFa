@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) id value;
 
 /// 下一个节点
-@property (nonatomic, strong) LinkedListNode *next;
+@property (nonatomic, strong, nullable) LinkedListNode *next;
 
 /// 初始化方法
 - (instancetype)initWithValue:(id)value;
