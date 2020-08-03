@@ -16,17 +16,20 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public var val: Int
- *     public var next: ListNode?
- *     public init(_ val: Int) {
- *         self.val = val
- *         self.next = nil
- *     }
- * }
- */
+
+// Definition for singly-linked list.
+public class ListNode {
+    public var val: Int
+    public var next: ListNode?
+    public init(_ val: Int) {
+        self.val = val
+        self.next = nil
+    }
+}
+
+var l1 = ListNode(243)
+var l2 = ListNode(564)
+
 class Solution {
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         
