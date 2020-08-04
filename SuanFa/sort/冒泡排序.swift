@@ -1,36 +1,40 @@
-// 需求：排序前[4,5,6,3,2,1]
-// 排序后[1,2,3,4,5,6]
 
-/// 冒泡排序
-/// array.sort(by: <)
+/**
+冒泡次数        		冒泡结果
+初始状态			4,5,6,3,2,1
+第1次冒泡			4,5,3,2,1,6
+第2次冒泡			4,3,2,1,5,6
+第3次冒泡			3,2,1,4,5,6
+第4次冒泡			2,1,3,4,5,6
+第5次冒泡			1,2,3,4,5,6
+*/
 
-//var array = [4,5,6,3,2,1]
-// 1. [5,6,3,2,1,4]
-// 2. [6,3,2,1,4,5]
-// 3. [3,2,1,4,5,6]
-// 4. [2,1,3,4,5,6]
-// 5. [1,2,3,4,5,6]
+/**
+排序原理：比较相邻元素，如果前一个比后一个大，就交互位置。
+对每一对相邻元素做同样工作，从开始到结束。
+*/
 
-var array = [4,5,6,3,2,1,10,7,8,9,6,5,0]
-var newArray = array;
- 
-/// 顺序从小到大
-/// 与最后一个数比较，如果大，添加到比较数后面添加，并删除对应的数
+/**
+时间复杂度：
+空间复杂度：
+*/
 
-for item in newArray {
-    for i in 0..<array.count
-    {
-        let sencondIndex = array.count-i-1
-        let newItem = array[sencondIndex]
-        if newItem < item  {
-            array.insert(item, at: sencondIndex+1)
-            if let firstIndex = array.firstIndex(of:item) {
-                 array.remove(at: firstIndex)
-            }
-            break
-        }
-    }
+var array = [4,5,6,3,2,1]
+
+for _ in array {
+	for i in 0 ..< array.count {
+		let firstItem = array[i]
+		var secondItem = firstItem
+		if i+1 < array.count {
+			secondItem = array[i+1]
+		}
+		
+		if firstItem > secondItem {
+			array.replaceSubrange(i+1..<i+2, with: [firstItem])
+			array.replaceSubrange(i..<i+1, with: [secondItem])
+		}
+	}
 }
 
 
-print("\(array)")
+print(array)
